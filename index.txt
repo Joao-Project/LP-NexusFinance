@@ -1,0 +1,2545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Finance - Domine Sua Vida Financeira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e estilos gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2a5ca7;
+            --primary-dark: #1e4785;
+            --accent: #00d4ff;
+            --accent-green: #00ff88;
+            --dark: #0a0a0f;
+            --dark-light: #151521;
+            --text: #ffffff;
+            --text-light: #b0b0c0;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #2a5ca7, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(42, 92, 167, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(42, 92, 167, 0.5);
+        }
+        
+        .btn-large {
+            padding: 20px 45px;
+            font-size: 1.2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent-green));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+        
+        /* ANIMAÇÕES DE ENTRADA E SCROLL - ATUALIZADAS */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scroll-animate.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-animate.slide-left {
+            transform: translateX(-50px);
+        }
+        
+        .scroll-animate.slide-left.fade-in {
+            transform: translateX(0);
+        }
+        
+        .scroll-animate.slide-right {
+            transform: translateX(50px);
+        }
+        
+        .scroll-animate.slide-right.fade-in {
+            transform: translateX(0);
+        }
+        
+        .scroll-animate.scale-in {
+            transform: scale(0.9);
+        }
+        
+        .scroll-animate.scale-in.fade-in {
+            transform: scale(1);
+        }
+        
+        .scroll-animate.fade-up {
+            transform: translateY(50px);
+        }
+        
+        .scroll-animate.fade-up.fade-in {
+            transform: translateY(0);
+        }
+        
+        .scroll-animate.rotate-in {
+            transform: rotate(-5deg) scale(0.95);
+        }
+        
+        .scroll-animate.rotate-in.fade-in {
+            transform: rotate(0) scale(1);
+        }
+        
+        .scroll-animate.bounce-in {
+            transform: scale(0.7);
+        }
+        
+        .scroll-animate.bounce-in.fade-in {
+            animation: bounceIn 0.8s ease forwards;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.7); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+        
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+        
+        .delay-5 {
+            transition-delay: 0.5s;
+        }
+        
+        .delay-6 {
+            transition-delay: 0.6s;
+        }
+        
+        /* ANIMAÇÃO DE ENTRADA DA LOGO */
+        .logo-intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, transform 1s ease;
+        }
+        
+        .logo-intro.fade-out {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+        
+        .intro-logo {
+            font-size: 2.5rem; /* LOGO MENOR */
+            font-weight: 800;
+            background: linear-gradient(135deg, #2a5ca7, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes logoPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Header */
+        header {
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transform: translateY(-100%);
+            transition: transform 0.8s ease;
+        }
+        
+        header.visible {
+            transform: translateY(0);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2a5ca7, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .logo.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: radial-gradient(circle at top right, rgba(42, 92, 167, 0.2), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(0, 212, 255, 0.1), transparent 50%);
+            padding-top: 180px;
+            padding-bottom: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            filter: blur(60px);
+            opacity: 0.2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+        
+        .dashboard-preview {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .dashboard-preview:hover {
+            transform: translateY(-10px);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* NOVA SEÇÃO: CONTADOR REGRESSIVO EM FAIXA */
+        .countdown-section {
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .countdown-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .countdown-text p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            font-size: 1.1rem;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 80px;
+        }
+
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .countdown-urgency {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .countdown-container {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .countdown-timer {
+                gap: 10px;
+            }
+            
+            .countdown-unit {
+                min-width: 70px;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+                min-width: 70px;
+                padding: 12px;
+            }
+            
+            .countdown-text h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* Seção de Problema */
+        .problems {
+            background: var(--dark-light);
+            position: relative;
+        }
+        
+        .problems::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(42, 92, 167, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .problem-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent-green));
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .problem-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Seção de Solução */
+        .solutions {
+            background: var(--dark);
+            position: relative;
+        }
+        
+        .solutions::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 212, 255, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .solution-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent-green));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .solution-card:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .solution-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, var(--primary), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Seção de Planos */
+        .pricing {
+            background: var(--dark-light);
+            position: relative;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-card.popular {
+            border: 1px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .pricing-card.popular::before {
+            content: "MAIS POPULAR";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: linear-gradient(to right, var(--primary), var(--accent-green));
+            color: white;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-bottom-left-radius: 15px;
+            z-index: 2;
+        }
+        
+        .pricing-header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .pricing-body {
+            padding: 30px;
+        }
+        
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--text);
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        .features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* Seção de Garantia */
+        .guarantee {
+            background: var(--dark);
+            text-align: center;
+            position: relative;
+        }
+        
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(42, 92, 167, 0.1), rgba(0, 212, 255, 0.1));
+            padding: 60px 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guarantee-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .guarantee-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        /* Seção FAQ */
+        .faq {
+            background: var(--dark-light);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        
+        .faq-question {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 25px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* CTA Final */
+        .final-cta {
+            background: linear-gradient(135deg, var(--dark-light) 0%, var(--dark) 100%);
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(42, 92, 167, 0.2), transparent 70%);
+        }
+        
+        .final-cta h2 {
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        .urgency {
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 30px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(42, 92, 167, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--text-light);
+            padding: 70px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h4 {
+            color: var(--text);
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                flex: none;
+                width: 100%;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .problem-grid, .solution-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .intro-logo {
+                font-size: 2rem; /* TAMANHO REDUZIDO PARA MOBILE TAMBÉM */
+            }
+        }
+
+        /* NOVOS ESTILOS ADICIONADOS */
+
+        /* Seção de Provas Sociais - ATUALIZADA */
+        .social-proof {
+            background: var(--dark);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            gap: 30px;
+            padding: 10px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            flex: 0 0 calc(33.333% - 20px);
+            min-width: 300px;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            flex-shrink: 0;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .author-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+
+        .stars .far {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Botões de navegação do slider */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .slider-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Pop-up de Compra */
+        .purchase-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            max-width: 300px;
+            z-index: 1000;
+            display: none;
+            animation: slideInRight 0.5s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .popup-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            flex-shrink: 0;
+        }
+
+        .popup-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popup-text {
+            flex: 1;
+        }
+
+        .popup-text p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .popup-time {
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        /* Contador Regressivo em Faixa */
+        .countdown-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            color: white;
+            padding: 12px 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-banner.visible {
+            transform: translateY(0);
+        }
+
+        .countdown-banner-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-text {
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 15px;
+        }
+
+        .countdown-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 50px;
+        }
+
+        .countdown-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+        }
+
+        .countdown-urgency {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Modal de Compra */
+        .purchase-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+
+        .purchase-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--dark-light);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+        }
+
+        .modal-title {
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #2a5ca7, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-plan {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .modal-plan h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .modal-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .modal-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .modal-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-features li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-features li i {
+            color: var(--accent-green);
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .payment-option {
+            flex: 1;
+            min-width: 120px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
+        }
+
+        .payment-option.active {
+            background: rgba(42, 92, 167, 0.2);
+            border-color: var(--accent);
+        }
+
+        .payment-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+
+        .payment-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--accent-green));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(42, 92, 167, 0.3);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(42, 92, 167, 0.5);
+        }
+
+        .security-badge {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .security-badge i {
+            color: var(--accent-green);
+            margin-right: 8px;
+        }
+
+        .security-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        .success-message h3 {
+            color: var(--accent-green);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .countdown-banner-content {
+                gap: 15px;
+            }
+            
+            .countdown-timer {
+                gap: 10px;
+            }
+            
+            .countdown-unit {
+                min-width: 40px;
+            }
+            
+            .countdown-value {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-text {
+                font-size: 0.9rem;
+            }
+            
+            .testimonial-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+
+            .payment-options {
+                flex-direction: column;
+            }
+            
+            .payment-option {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ANIMAÇÃO DE ENTRADA DA LOGO -->
+    <div class="logo-intro" id="logoIntro">
+        <div class="intro-logo">Nexus Finance</div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container header-container">
+            <div class="logo" id="headerLogo">Nexus Finance</div>
+            <a href="#final-cta" class="btn">Experimente Grátis</a>
+        </div>
+    </header>
+
+    <!-- Contador Regressivo em Faixa -->
+    <div class="countdown-banner" id="countdownBanner">
+        <div class="container">
+            <div class="countdown-banner-content">
+                <div class="countdown-text">🚀 OFERTA ESPECIAL: 40% OFF - Termina em:</div>
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="bannerHours">02</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="bannerMinutes">00</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="bannerSeconds">00</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
+                <div class="countdown-urgency">Últimas 12 vagas!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section COM SUA IMAGEM FUNCIONAL -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="scroll-animate fade-up">Domine Seu Dinheiro: O Primeiro Passo Rumo à Liberdade Financeira</h1>
+                <p class="scroll-animate fade-up delay-1">O sistema completo que já transformou a vida financeira de milhares de pessoas, ajudando a economizar até 30% e criar uma estratégia de investimentos inteligente.</p>
+                <a href="#final-cta" class="btn btn-large scroll-animate fade-up delay-2">Quero Alcançar Minha Liberdade Financeira →</a>
+                
+                <div class="hero-stats">
+                    <div class="stat scroll-animate fade-up delay-3">
+                        <span class="stat-number">+5.000</span>
+                        <span class="stat-label">Pessoas Transformadas</span>
+                    </div>
+                    <div class="stat scroll-animate fade-up delay-4">
+                        <span class="stat-number">30%</span>
+                        <span class="stat-label">Economia em Média</span>
+                    </div>
+                    <div class="stat scroll-animate fade-up delay-5">
+                        <span class="stat-number">4,9/5</span>
+                        <span class="stat-label">Avaliação dos Clientes</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- SUA IMAGEM DO GOOGLE DRIVE CONVERTIDA -->
+                <img src="https://drive.google.com/thumbnail?id=1CQOTUsD4tulD0CCzZY5iqKwEopc71Cyp&sz=w1000" 
+                     alt="Dashboard Nexus Finance - Controle Financeiro Inteligente" 
+                     class="dashboard-preview scroll-animate slide-right">
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: CONTADOR REGRESSIVO EM FAIXA -->
+    <section class="countdown-section" id="countdownSection">
+        <div class="container">
+            <div class="countdown-container">
+                <div class="countdown-text scroll-animate slide-left">
+                    <h3>🚀 OFERTA ESPECIAL POR TEMPO LIMITADO</h3>
+                    <p>40% DE DESCONTO - Apenas por 2 horas! Garanta seu acesso ao Nexus Finance com condições exclusivas.</p>
+                </div>
+                <div class="countdown-timer scroll-animate bounce-in">
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="countdownHours">02</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="countdownMinutes">00</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="countdownSeconds">00</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
+                <div class="countdown-urgency scroll-animate slide-right">ÚLTIMAS VAGAS!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Problema -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2 class="section-title scroll-animate fade-up">Você se identifica com algum desses desafios?</h2>
+            <p class="section-subtitle scroll-animate fade-up delay-1">Estes são os problemas mais comuns que impedem as pessoas de alcançarem sua independência financeira</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card scroll-animate rotate-in delay-1">
+                    <div class="problem-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Dinheiro que some</h3>
+                    <p>Trabalha bastante, ganha um bom salário, mas no final do mês não sabe para onde foi o dinheiro e não consegue poupar.</p>
+                </div>
+                
+                <div class="problem-card scroll-animate rotate-in delay-2">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Falta de controle</h3>
+                    <p>Não tem uma visão clara de seus gastos, investimentos e patrimônio. Toma decisões financeiras no escuro.</p>
+                </div>
+                
+                <div class="problem-card scroll-animate rotate-in delay-3">
+                    <div class="problem-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Dificuldade em poupar</h3>
+                    <p>Tenta economizar, mas sempre surge um imprevisto que consome suas reservas. O ciclo se repete mês após mês.</p>
+                </div>
+                
+                <div class="problem-card scroll-animate rotate-in delay-4">
+                    <div class="problem-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Investimentos complexos</h3>
+                    <p>Quer começar a investir, mas se sente perdido com tantas opções, termos técnicos e burocracias.</p>
+                </div>
+                
+                <div class="problem-card scroll-animate rotate-in delay-5">
+                    <div class="problem-icon">
+                        <i class="fas fa-calendar-times"></i>
+                    </div>
+                    <h3>Falta de planejamento</h3>
+                    <p>Vive no modo "apaga incêndio", reagindo a problemas financeiros em vez de prevenir e planejar o futuro.</p>
+                </div>
+                
+                <div class="problem-card scroll-animate rotate-in delay-6">
+                    <div class="problem-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Falta de disciplina</h3>
+                    <p>Já tentou vários métodos de controle financeiro, mas nenhum se manteve por muito tempo. Falta o hábito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Provas Sociais - ATUALIZADA -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 class="section-title scroll-animate fade-up">O que nossos clientes dizem</h2>
+            <p class="section-subtitle scroll-animate fade-up delay-1">Mais de 5.000 pessoas já transformaram suas vidas financeiras com o Nexus Finance</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonials-grid">
+                        <!-- Testemunho 1 - ATUALIZADO -->
+                        <div class="testimonial-card scroll-animate slide-left delay-1">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Em 3 meses usando o Nexus Finance consegui organizar minhas finanças e já economizei R$ 2.500. Finalmente consegui criar minha reserva de emergência!"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Maria Clara">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Maria Clara</h4>
+                                        <p>Professora, 32 anos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testemunho 2 -->
+                        <div class="testimonial-card scroll-animate fade-up delay-2">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Antes vivia no vermelho, hoje tenho controle total sobre meus gastos e já estou investindo. O módulo de educação é sensacional para quem está começando."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Ricardo Silva">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Ricardo Silva</h4>
+                                        <p>Designer, 28 anos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testemunho 3 -->
+                        <div class="testimonial-card scroll-animate slide-right delay-3">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"A mentoria individual fez toda a diferença. Em 6 meses já tenho uma carteira de investimentos diversificada e estou no caminho da independência financeira."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Ana Paula">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Ana Paula</h4>
+                                        <p>Enfermeira, 35 anos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- NOVOS TESTEMUNHOS ADICIONADOS -->
+                    <div class="testimonials-grid">
+                        <!-- Testemunho 4 - 4 ESTRELAS -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"O sistema é muito intuitivo e me ajudou a visualizar meus gastos de forma clara. Em 2 meses já consegui reduzir 20% nas despesas desnecessárias. Recomendo!"</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Carlos Mendes">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Carlos Mendes</h4>
+                                        <p>Engenheiro, 41 anos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testemunho 5 - 4 ESTRELAS -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Finalmente entendi para onde vai meu dinheiro! A plataforma é fácil de usar e os relatórios me ajudaram a identificar gastos que nem percebia que tinha."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Fernanda Lima">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Fernanda Lima</h4>
+                                        <p>Arquiteta, 29 anos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Testemunho 6 - 4 ESTRELAS -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">"Como freelancer, tinha dificuldade em controlar fluxo de caixa. O Nexus Finance me deu clareza e hoje consigo planejar melhor meus investimentos e gastos."</p>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Roberto Alves">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Roberto Alves</h4>
+                                        <p>Designer Freelancer, 33 anos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botões de navegação -->
+                <div class="slider-nav">
+                    <button class="slider-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Solução -->
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title scroll-animate fade-up">O Nexus Finance traz simplicidade e resultados</h2>
+            <p class="section-subtitle scroll-animate fade-up delay-1">Tudo o que você precisa em uma única plataforma para transformar sua relação com o dinheiro</p>
+            
+            <div class="solution-grid">
+                <div class="solution-card scroll-animate bounce-in delay-1">
+                    <div class="solution-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Controle Total Manual</h3>
+                    <p>Interface intuitiva para lançamento rápido de receitas e despesas com categorização personalizável e alertas visuais de orçamento.</p>
+                </div>
+                
+                <div class="solution-card scroll-animate bounce-in delay-2">
+                    <div class="solution-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Metas com Propósito</h3>
+                    <p>Planejamento de objetivos claros (reserva, viagem, imóvel, independência) com acompanhamento visual do progresso e projeções realistas.</p>
+                </div>
+                
+                <div class="solution-card scroll-animate bounce-in delay-3">
+                    <div class="solution-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educação que Transforma</h3>
+                    <p>Conteúdos exclusivos "Investimentos para Iniciantes Reais" com estratégias adequadas para a classe média e comunidade de apoio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Planos -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title scroll-animate fade-up">Planos que Cabem no Seu Bolso</h2>
+            <p class="section-subtitle scroll-animate fade-up delay-1">Escolha o plano ideal para suas necessidades e comece hoje sua jornada rumo à liberdade financeira</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card scroll-animate slide-left delay-1">
+                    <div class="pricing-header">
+                        <h3>Plano Essencial</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">R$ 49,90<span>/mês</span></div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Dashboard completo Nexus</li>
+                            <li><i class="fas fa-check"></i> Suporte prioritário por email</li>
+                            <li><i class="fas fa-check"></i> Relatórios básicos de acompanhamento</li>
+                            <li><i class="fas fa-check"></i> Atualizações regulares</li>
+                        </ul>
+                        <a href="#final-cta" class="btn" style="width: 100%; text-align: center;">Escolher Este Plano</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card popular scroll-animate fade-up delay-2">
+                    <div class="pricing-header">
+                        <h3>Plano Pro</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">R$ 69,90<span>/mês</span></div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Tudo do Essencial +</li>
+                            <li><i class="fas fa-check"></i> Módulo avançado de educação em investimentos</li>
+                            <li><i class="fas fa-check"></i> Acesso à comunidade exclusiva</li>
+                            <li><i class="fas fa-check"></i> Workshop mensal em grupo</li>
+                            <li><i class="fas fa-check"></i> Planilhas de planejamento avançadas</li>
+                        </ul>
+                        <a href="#final-cta" class="btn" style="width: 100%; text-align: center;">Escolher Este Plano</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card scroll-animate slide-right delay-3">
+                    <div class="pricing-header">
+                        <h3>Plano Premium</h3>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="price">R$ 99,90<span>/mês</span></div>
+                        <ul class="features">
+                            <li><i class="fas fa-check"></i> Tudo do Pro +</li>
+                            <li><i class="fas fa-check"></i> 1 sessão de mentoria individual mensal</li>
+                            <li><i class="fas fa-check"></i> Planejamento financeiro personalizado</li>
+                            <li><i class="fas fa-check"></i> Análise de perfil de investidor</li>
+                            <li><i class="fas fa-check"></i> Acesso antecipado a novos recursos</li>
+                        </ul>
+                        <a href="#final-cta" class="btn" style="width: 100%; text-align: center;">Escolher Este Plano</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Garantia -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-box scroll-animate scale-in">
+                <div class="guarantee-content">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2>Teste Drive 7 Dias - Risco Zero</h2>
+                    <p>Experimente o Nexus Finance por 7 dias. Se não amar a experiência e não ver resultados, devolvemos cada centavo. Sem perguntas, sem burocracia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title scroll-animate fade-up">Perguntas Frequentes</h2>
+            <p class="section-subtitle scroll-animate fade-up delay-1">Tire suas dúvidas sobre o Nexus Finance e como ele pode transformar sua vida financeira</p>
+            
+            <div class="faq-container">
+                <div class="faq-item scroll-animate fade-up delay-1">
+                    <div class="faq-question">
+                        <span>Preciso inserir os dados manualmente?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! O Nexus foi desenvolvido para ser rápido e intuitivo no lançamento manual, dando mais consciência sobre cada gasto. Em menos de 5 minutos por dia você mantém tudo atualizado. Acreditamos que esse processo aumenta seu engajamento e entendimento sobre seus hábitos financeiros.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item scroll-animate fade-up delay-2">
+                    <div class="faq-question">
+                        <span>É complicado de usar?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pelo contrário! Focamos na simplicidade. Em menos de 30 minutos você estará dominando todas as funcionalidades. Temos tutoriais em vídeo, suporte dedicado e uma interface intuitiva projetada para quem não tem experiência com controle financeiro.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item scroll-animate fade-up delay-3">
+                    <div class="faq-question">
+                        <span>Posso cancelar facilmente?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, cancelamento instantâneo pelo painel, sem perguntas e sem taxas. Você tem total controle sobre sua assinatura. Nosso objetivo é que você permaneça conosco porque está obtendo resultados, não porque está preso a um contrato.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item scroll-animate fade-up delay-4">
+                    <div class="faq-question">
+                        <span>Como são os conteúdos educativos?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Desenvolvemos conteúdos específicos para a realidade da classe média brasileira. Abordamos desde os conceitos mais básicos até estratégias de investimento mais avançadas, sempre com linguagem acessível e exemplos práticos. Tudo organizado em módulos progressivos para seu aprendizado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="final-cta" id="final-cta">
+        <div class="container">
+            <h2 class="scroll-animate fade-up">Sua Jornada Financeira Começa Aqui</h2>
+            <p class="scroll-animate fade-up delay-1">Preço Especial de Lançamento - 40% off</p>
+            <a href="#final-cta" class="btn btn-large scroll-animate bounce-in delay-2">Garantir Meu Acesso com Desconto 🚀</a>
+            <div class="urgency scroll-animate fade-up delay-3">Últimas 20 vagas com desconto de lançamento!</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column scroll-animate slide-left delay-1">
+                    <h4>Nexus Finance</h4>
+                    <p>Sua plataforma completa para controle financeiro e educação em investimentos.</p>
+                </div>
+                
+                <div class="footer-column scroll-animate fade-up delay-2">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#problems">Desafios</a></li>
+                        <li><a href="#solutions">Soluções</a></li>
+                        <li><a href="#pricing">Planos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column scroll-animate fade-up delay-3">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column scroll-animate slide-right delay-4">
+                    <h4>Contato</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">suporte@nexusfinance.com</a></li>
+                        <li><a href="#">WhatsApp: (11) 99999-9999</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Nexus Finance - Todos os direitos reservados © 2023</p>
+                <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Pop-up de Compra -->
+    <div class="purchase-popup" id="purchasePopup">
+        <div class="popup-content">
+            <div class="popup-avatar">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="João Silva">
+            </div>
+            <div class="popup-text">
+                <p><strong>João Silva</strong> acabou de adquirir o Nexus Finance Pro</p>
+                <div class="popup-time">Há 2 minutos</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Compra -->
+    <div class="purchase-modal" id="purchaseModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-main" id="modalMain">
+                <h2 class="modal-title">Finalizar Compra</h2>
+                
+                <div class="modal-plan">
+                    <h4 id="selectedPlan">Plano Pro</h4>
+                    <div class="modal-price" id="selectedPrice">R$ 69,90/mês</div>
+                </div>
+
+                <ul class="modal-features" id="modalFeatures">
+                    <li><i class="fas fa-check"></i> Dashboard completo Nexus</li>
+                    <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                    <li><i class="fas fa-check"></i> Relatórios avançados</li>
+                </ul>
+
+                <div class="payment-options">
+                    <div class="payment-option active" data-method="credit">
+                        <div class="payment-icon">
+                            <i class="far fa-credit-card"></i>
+                        </div>
+                        <div class="payment-text">Cartão</div>
+                    </div>
+                    <div class="payment-option" data-method="pix">
+                        <div class="payment-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <div class="payment-text">PIX</div>
+                    </div>
+                    <div class="payment-option" data-method="paypal">
+                        <div class="payment-icon">
+                            <i class="fab fa-paypal"></i>
+                        </div>
+                        <div class="payment-text">PayPal</div>
+                    </div>
+                </div>
+
+                <button class="checkout-btn" id="checkoutBtn">
+                    Finalizar Compra - <span id="checkoutPrice">R$ 69,90</span>
+                </button>
+
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span class="security-text">Pagamento 100% seguro e criptografado</span>
+                </div>
+            </div>
+
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Processando seu pagamento...</p>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Parabéns!</h3>
+                <p>Seu acesso ao Nexus Finance foi ativado com sucesso!</p>
+                <p>Em instantes você receberá um email com as instruções de acesso.</p>
+                <button class="checkout-btn" id="successBtn" style="margin-top: 20px;">
+                    Acessar Minha Conta
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ANIMAÇÃO DE ENTRADA DA LOGO
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoIntro = document.getElementById('logoIntro');
+            const mainHeader = document.getElementById('mainHeader');
+            const headerLogo = document.getElementById('headerLogo');
+            
+            // Animação de entrada da logo
+            setTimeout(() => {
+                logoIntro.classList.add('fade-out');
+                
+                // Mostrar header e conteúdo da página
+                setTimeout(() => {
+                    mainHeader.classList.add('visible');
+                    headerLogo.classList.add('animate-in');
+                    logoIntro.style.display = 'none';
+                }, 800);
+            }, 2500); // Logo aparece por 2.5 segundos
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = question.nextElementSibling;
+                const isActive = item.classList.contains('active');
+                
+                // Fecha todas as respostas
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // Abre a resposta clicada se não estava ativa
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Animação de contador para stats (opcional)
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start);
+                }
+            }, 16);
+        }
+        
+        // Inicia animação quando a seção hero estiver visível
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stats = document.querySelectorAll('.stat-number');
+                    animateCounter(stats[0], 5000, 2000);
+                    animateCounter(stats[1], 30, 1500);
+                    animateCounter(stats[2], 4.9, 1000);
+                }
+            });
+        });
+        
+        observer.observe(document.querySelector('.hero'));
+        
+        // Animação de scroll - ATUALIZADA PARA ANIMAÇÃO EM AMBAS AS DIREÇÕES
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                } else {
+                    // Remove a classe quando o elemento sai da tela (opcional)
+                    // entry.target.classList.remove('fade-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        // Observa todos os elementos com a classe scroll-animate
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // SLIDER DE TESTEMUNHOS
+        const testimonialsSlider = document.getElementById('testimonialsSlider');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentSlide = 0;
+        const slideWidth = testimonialsSlider.offsetWidth;
+
+        function updateSlider() {
+            testimonialsSlider.scrollTo({
+                left: currentSlide * slideWidth,
+                behavior: 'smooth'
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < 1) { // Temos 2 slides (0 e 1)
+                currentSlide++;
+                updateSlider();
+            }
+        });
+
+        // SISTEMA DE COMPRA - JavaScript Atualizado
+
+        // Dados dos planos
+        const plans = {
+            essential: {
+                name: "Plano Essencial",
+                price: "R$ 49,90",
+                period: "/mês",
+                features: [
+                    "Dashboard completo Nexus",
+                    "Suporte prioritário por email",
+                    "Relatórios básicos de acompanhamento",
+                    "Atualizações regulares"
+                ],
+                checkoutPrice: "49.90"
+            },
+            pro: {
+                name: "Plano Pro",
+                price: "R$ 69,90",
+                period: "/mês",
+                features: [
+                    "Tudo do Essencial +",
+                    "Módulo avançado de educação em investimentos",
+                    "Acesso à comunidade exclusiva",
+                    "Workshop mensal em grupo",
+                    "Planilhas de planejamento avançadas"
+                ],
+                checkoutPrice: "69.90"
+            },
+            premium: {
+                name: "Plano Premium",
+                price: "R$ 99,90",
+                period: "/mês",
+                features: [
+                    "Tudo do Pro +",
+                    "1 sessão de mentoria individual mensal",
+                    "Planejamento financeiro personalizado",
+                    "Análise de perfil de investidor",
+                    "Acesso antecipado a novos recursos"
+                ],
+                checkoutPrice: "99.90"
+            }
+        };
+
+        // Elementos do DOM
+        const purchaseModal = document.getElementById('purchaseModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalMain = document.getElementById('modalMain');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const successMessage = document.getElementById('successMessage');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const successBtn = document.getElementById('successBtn');
+
+        // Variáveis globais
+        let selectedPlan = 'pro';
+        let selectedPaymentMethod = 'credit';
+
+        // Configurar botões de compra
+        function setupPurchaseButtons() {
+            // Botões "Escolher Este Plano"
+            document.querySelectorAll('.pricing-card .btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const card = this.closest('.pricing-card');
+                    if (card.classList.contains('popular')) {
+                        selectedPlan = 'pro';
+                    } else if (card.querySelector('h3').textContent.includes('Essencial')) {
+                        selectedPlan = 'essential';
+                    } else if (card.querySelector('h3').textContent.includes('Premium')) {
+                        selectedPlan = 'premium';
+                    }
+                    
+                    openPurchaseModal();
+                });
+            });
+
+            // Botão CTA Principal do Hero
+            document.querySelector('.hero .btn-large').addEventListener('click', function(e) {
+                e.preventDefault();
+                selectedPlan = 'pro';
+                openPurchaseModal();
+            });
+
+            // Botão CTA Final
+            document.querySelector('.final-cta .btn-large').addEventListener('click', function(e) {
+                e.preventDefault();
+                selectedPlan = 'pro';
+                openPurchaseModal();
+            });
+
+            // Botões "Experimente Grátis" no Header
+            document.querySelector('header .btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                selectedPlan = 'pro';
+                openPurchaseModal();
+            });
+        }
+
+        // Abrir modal de compra
+        function openPurchaseModal() {
+            const plan = plans[selectedPlan];
+            
+            // Atualizar informações do modal
+            document.getElementById('selectedPlan').textContent = plan.name;
+            document.getElementById('selectedPrice').textContent = plan.price + plan.period;
+            document.getElementById('checkoutPrice').textContent = plan.price;
+            
+            // Atualizar lista de features
+            const featuresList = document.getElementById('modalFeatures');
+            featuresList.innerHTML = '';
+            plan.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
+                featuresList.appendChild(li);
+            });
+            
+            // Mostrar modal
+            purchaseModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fechar modal
+        function closePurchaseModal() {
+            purchaseModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            resetModal();
+        }
+
+        // Resetar modal para estado inicial
+        function resetModal() {
+            modalMain.style.display = 'block';
+            loadingSpinner.style.display = 'none';
+            successMessage.style.display = 'none';
+        }
+
+        // Processar checkout
+        function processCheckout() {
+            // Mostrar loading
+            modalMain.style.display = 'none';
+            loadingSpinner.style.display = 'block';
+            
+            // Simular processamento do pagamento
+            setTimeout(() => {
+                loadingSpinner.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Atualizar popups de compra
+                updatePurchasePopups();
+            }, 3000);
+        }
+
+        // Atualizar popups de compras recentes
+        function updatePurchasePopups() {
+            const popupMessages = [
+                { 
+                    name: "Maria Santos", 
+                    photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                    time: "Agora mesmo" 
+                },
+                { 
+                    name: "Carlos Oliveira", 
+                    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                    time: "Há 2 minutos" 
+                }
+            ];
+            
+            // Adicionar mensagem de compra recente
+            const purchasePopup = document.getElementById('purchasePopup');
+            const message = popupMessages[Math.floor(Math.random() * popupMessages.length)];
+            
+            const popupContent = purchasePopup.querySelector('.popup-content');
+            popupContent.innerHTML = `
+                <div class="popup-avatar">
+                    <img src="${message.photo}" alt="${message.name}">
+                </div>
+                <div class="popup-text">
+                    <p><strong>${message.name}</strong> acabou de adquirir o ${plans[selectedPlan].name}</p>
+                    <div class="popup-time">${message.time}</div>
+                </div>
+            `;
+            
+            purchasePopup.style.display = 'block';
+            setTimeout(() => {
+                purchasePopup.style.display = 'none';
+            }, 5000);
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            setupPurchaseButtons();
+            
+            // Fechar modal
+            modalClose.addEventListener('click', closePurchaseModal);
+            purchaseModal.addEventListener('click', function(e) {
+                if (e.target === purchaseModal) {
+                    closePurchaseModal();
+                }
+            });
+
+            // Seleção de método de pagamento
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.payment-option').forEach(opt => {
+                        opt.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    selectedPaymentMethod = this.dataset.method;
+                });
+            });
+
+            // Botão de finalizar compra
+            checkoutBtn.addEventListener('click', processCheckout);
+
+            // Botão de sucesso
+            successBtn.addEventListener('click', function() {
+                closePurchaseModal();
+                // Redirecionar para área de membros (substitua pela URL real)
+                window.location.href = 'https://app.nexusfinance.com/dashboard';
+            });
+
+            // Tecla ESC para fechar modal
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && purchaseModal.classList.contains('active')) {
+                    closePurchaseModal();
+                }
+            });
+        });
+
+        // NOVOS SCRIPTS ADICIONADOS
+
+        // Pop-up de compras recentes
+        const purchasePopup = document.getElementById('purchasePopup');
+        const popupMessages = [
+            { 
+                name: "Maria Santos", 
+                photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                time: "Há 5 minutos" 
+            },
+            { 
+                name: "Carlos Oliveira", 
+                photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                time: "Há 8 minutos" 
+            },
+            { 
+                name: "Ana Costa", 
+                photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                time: "Há 12 minutos" 
+            },
+            { 
+                name: "Pedro Almeida", 
+                photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                time: "Há 15 minutos" 
+            },
+            { 
+                name: "Juliana Rocha", 
+                photo: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                time: "Há 18 minutos" 
+            }
+        ];
+
+        let popupIndex = 0;
+
+        function showPurchasePopup() {
+            if (popupIndex >= popupMessages.length) popupIndex = 0;
+            
+            const message = popupMessages[popupIndex];
+            const popupContent = purchasePopup.querySelector('.popup-content');
+            
+            popupContent.innerHTML = `
+                <div class="popup-avatar">
+                    <img src="${message.photo}" alt="${message.name}">
+                </div>
+                <div class="popup-text">
+                    <p><strong>${message.name}</strong> acabou de adquirir o Nexus Finance Pro</p>
+                    <div class="popup-time">${message.time}</div>
+                </div>
+            `;
+            
+            purchasePopup.style.display = 'block';
+            
+            setTimeout(() => {
+                purchasePopup.style.display = 'none';
+                popupIndex++;
+            }, 5000);
+        }
+
+        // Mostrar primeiro pop-up após 10 segundos
+        setTimeout(() => {
+            showPurchasePopup();
+            // Mostrar pop-ups a cada 15 segundos
+            setInterval(showPurchasePopup, 15000);
+        }, 10000);
+
+        // CONTADOR REGRESSIVO DE 2 HORAS - ATUALIZADO
+        const countdownBanner = document.getElementById('countdownBanner');
+        const bannerHours = document.getElementById('bannerHours');
+        const bannerMinutes = document.getElementById('bannerMinutes');
+        const bannerSeconds = document.getElementById('bannerSeconds');
+        
+        const countdownHours = document.getElementById('countdownHours');
+        const countdownMinutes = document.getElementById('countdownMinutes');
+        const countdownSeconds = document.getElementById('countdownSeconds');
+
+        // Configurar contador regressivo para 2 horas
+        let totalSeconds = 2 * 60 * 60; // 2 horas em segundos
+
+        function updateCountdown() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            // Atualizar banner fixo
+            bannerHours.textContent = hours.toString().padStart(2, '0');
+            bannerMinutes.textContent = minutes.toString().padStart(2, '0');
+            bannerSeconds.textContent = seconds.toString().padStart(2, '0');
+            
+            // Atualizar seção de contador
+            countdownHours.textContent = hours.toString().padStart(2, '0');
+            countdownMinutes.textContent = minutes.toString().padStart(2, '0');
+            countdownSeconds.textContent = seconds.toString().padStart(2, '0');
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                // Quando o contador chegar a zero
+                countdownBanner.innerHTML = '<div class="container"><div class="countdown-banner-content"><div class="countdown-text">🚀 OFERTA EXPIRADA!</div></div></div>';
+                document.getElementById('countdownSection').innerHTML = '<div class="container"><div class="countdown-container"><div class="countdown-text"><h3>🚀 OFERTA EXPIRADA!</h3><p>A oferta especial terminou. Entre em contato para verificar disponibilidade.</p></div></div></div>';
+                clearInterval(countdownInterval);
+            }
+        }
+
+        // Mostrar banner após carregar a página
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                countdownBanner.classList.add('visible');
+            }, 1000);
+        });
+
+        // Atualizar contador a cada segundo
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Chamar uma vez para inicializar
+    </script>
+</body>
+</html>
